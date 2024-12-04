@@ -24,6 +24,9 @@ type target_api = {
     }[];
 }
 
+
+//----------------------------------------------------------------------------------
+// type
 type target_api = {
     summary: target_summary[];
     kpi: target_kpi[];
