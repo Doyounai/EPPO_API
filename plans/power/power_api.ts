@@ -4,7 +4,6 @@ type pdp_api =  {
 	// ข้อมูล summary card (กราฟวงกลม)
 	summary: {
 		year: number; // 2567
-		count_actual_greater_than_0: number;
 		percentage: number;
 		kpi: { // kpi ภายในแผน power ทั้งหมด รวมทุก target
 			target: string; // 1
@@ -19,7 +18,7 @@ type pdp_api =  {
 		t_title: string; // เสริมสร้างพลังงานมั่นคง
 		kpi: {
 			k_title: string; // target 1.1.2
-			k_des: string; // คำอธิบายเป้าหมายของ kpi
+			k_des: string; // เป้าหมายของ kpi เช่น ระบบการผลิตไฟฟ้ามีความมั่นคง
 			years: {
 				year: string; // 2567-2570
 				status: number; // 0 = ยังไม่ได้ทำ 1 = ทำเสร็จแล้ว 2 = กำลังทำ
