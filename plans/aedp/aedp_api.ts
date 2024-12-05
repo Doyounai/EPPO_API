@@ -33,10 +33,10 @@ type aedp_api = {
         alt: {
             data: {
                 year: number; // 2567
-                elect_sum: number; // ผลรวมของ 1. พลังงานไฟฟ้า (หน่วย MW)
+                elect_sum: number; // ผลรวมของ 1. พลังงานไฟฟ้า
                 thermal_sum: number; // ผลรวมของ 2. พลังงานความร้อน
                 bio_sum: number; // ผลรวมของ 3. เชื้อเพลิงชีวภาพ
-                elect_data: { // ค่าย่อยภายในหัวข้อ 1. พลังงานไฟฟ้า (หน่วย MW)
+                elect_data: { // ค่าย่อยภายในหัวข้อ 1. พลังงานไฟฟ้า 
                     "พลังงานแสงอาทิตย์": number;
                     "พลังงานแสงอาทิตย์ทุ่นลอยน้ำ": number;
                     "พลังงานลม": number;
@@ -76,4 +76,90 @@ type aedp_api = {
             bio: number; // หัวข้อ 3. การลดการปล่อย CO2 จากการใช้เชื้อเพลิงชีวภาพจากพลังงานทดแทนและพลังงานทางเลือก
         }[];
     }
+}
+
+// ------------------------------------------------------------------------------------------
+// types
+
+type aedp_api = {
+	summary: aedp_summary[];
+	target1: aedp_target;
+	target2: aedp_target;
+	target3: aedp_target;
+    charts: {
+        alt: alt_chart;
+        co2: co2_chart;
+    }
+}
+
+type aedp_summary = {
+	year: number;
+	percentage: number;
+	kpi: {
+		target: string; 
+		kpi: string;
+		status: number; 
+	}[];
+}
+
+type aedp_target = {
+	target: string;
+	t_title: string;
+	kpi: aedp_kpi[];
+}
+
+type aedp_kpi = {
+	k_title: string;
+	k_des: string;
+	years: {
+		title: string;
+		status: number;
+		targetDes: string;
+		actionDes: string;
+	}[];
+};
+
+type alt_chart = {
+    data: {
+        year: number;
+        elect_sum: number;
+        thermal_sum: number;
+        bio_sum: number; 
+        elect_data: {
+            "พลังงานแสงอาทิตย์": number;
+            "พลังงานแสงอาทิตย์ทุ่นลอยน้ำ": number;
+            "พลังงานลม": number;
+            "ชีวมวล": number;
+            "ก๊าซชีวภาพ (น้ำเสีย/ของเสีย)": number;
+            "ก๊าซชีวภาพ (พืชพลังงาน)": number;
+            "ขยะชุมชน ": number;
+            "ขยะอุตสาหกรรม": number;
+            "พลังน้ำขนาดเล็ก": number;
+            "พลังน้ำขนาดใหญ่": number;
+            "ความร้อนใต้พิภพ": number;
+            "ไฮโดรเจน": number;
+            "พลังน้ำนำเข้า": number;
+        };
+        themal_data: {
+            "พลังงานแสงอาทิตย์": number;
+            "ชีวมวล": number;
+            "ก๊าซชีวภาพ": number;
+            "พลังงานขยะ": number;
+            "อื่นๆ": number;
+        };
+        bio_data: {
+            "เอทานอล": number;
+            "ไบโอดีเซล": number;
+            "น้ำมันอากาศยานยั่งยืน (SAF)": number;
+            "ไฮโดรเจน": number;
+        };
+    }[];
+};
+
+type co2_chart = {
+    year: number;
+    sum: number;
+    alt: number; 
+    themal: number; 
+    bio: number // 
 }
