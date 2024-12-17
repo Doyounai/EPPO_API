@@ -46,9 +46,9 @@ type gas_api = {
             title: string; // LNG ที่ต้องจัดหาเพิ่ม
             unit: string;
             data:{ 
-                year: number;
-                target: number;
-                result: number;
+                year: number; // ปี
+                target: number; // แผน
+                result: number; // ผล
             }[];
         }
     }

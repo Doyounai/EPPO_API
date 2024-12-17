@@ -9,6 +9,13 @@ type target_api = {
             des: string; // ปริมาณพลังงานเพียงพอต่อความต้องการใช้พลังงานในประเทศ
             progress: number;
         }[];
+        // จำนวนของแผนงานในสถานนะตรงๆ
+        reportStatus: {
+            complete: number; // แล้วเสร็จ
+            inprogress: number; // อยู่ระหว่างดำเนินงาน
+            noprogress: number; // ยังไม่ดำเนินงาน
+            noreport: number; // ยังไม่มีข้อมูล
+        }
     }[];
 
     // kpi ราย 5 ปีของ target นั้นๆ
@@ -30,6 +37,12 @@ type target_api = {
 type target_api = {
     summary: target_summary[];
     kpi: target_kpi[];
+    reportStatus: {
+        complete: number;
+        inprogress: number;
+        noprogress: number; 
+        noreport: number;
+    }
 }
 
 type target_summary = {
