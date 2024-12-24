@@ -40,10 +40,7 @@ type oil_api = {
         "NGV": number;
         "LPG": number;
         "SAF": number;
-        "UCO": number;
-        "Jet": number;
         "BioVLSFO": number;
-        "FO": number;
     }[];
 
     charts: {
