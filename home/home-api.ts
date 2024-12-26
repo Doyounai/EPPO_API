@@ -27,7 +27,7 @@ type home_api = {
 
     // kpi target
     target1: {
-        target: number; // 1
+        target: number; // 1    
         progress: number; // ความก้าวหน้าของ target 0 - 100
         kpi: {
             kpi: string; // 1.1.1
