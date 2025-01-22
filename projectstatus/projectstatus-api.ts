@@ -1,4 +1,4 @@
-type program_api = {
+type projectstatus_api = {
     target: string;
     name: string;
     year:{
